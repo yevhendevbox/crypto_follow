@@ -1,0 +1,280 @@
+/* ============================= =================================
+                          CSS VARIABLES
+============================= ================================= */
+:root {
+  --accent: #FF4C29;
+  --darken-3: #082032;
+  --darken-2: #2C394B;
+  --darken-1: #334756;
+  --white: #fff;
+
+  --ff-h: 'Share Tech Mono', monospace;
+  --ff-p: 'Anonymous Pro', monospace;
+
+  --fz-p: 1.4rem;
+
+  --bold: 700;
+  --regular: 400;
+}
+
+/* ============================= =================================
+                          Fonts import
+============================= ================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Share+Tech+Mono&display=swap');
+
+/* ============================= =================================
+                         Global Styles
+============================= ================================= */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  font-family: var(--ff-p);
+  color: var(--white);
+  background-color: var(--darken-2);
+}
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--ff-h);
+  text-transform: uppercase;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color .3s ease;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+img {
+  width: 100%;
+}
+
+input, .btn {
+  display: block;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  padding: 0.5em 1em;
+  background-color: var(--darken-3);
+  color: var(--white);
+  text-transform: uppercase;
+}
+input {
+  padding: .8em 1em;
+}
+.btn {
+  background-color: var(--accent);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s ease;
+}
+.btn:hover {
+  background-color: var(--darken-1);
+  cursor: pointer;
+}
+hr {
+  border-bottom: none;
+  border-color: var(--darken-1);
+}
+
+.container {
+  height: 100%;
+  width: min(98%, 1200px);
+  margin: 0 auto;
+}
+
+/* ============================= =================================
+Main Styles
+============================= ================================= */
+
+.header,
+.footer {
+  padding-inline-start: 1em;
+  padding-inline-end: 1em;
+  padding-block-start: 1em;
+  padding-block-end: 1em;
+  background-color: var(--darken-3);
+  color: var(--white);
+}
+.footer {
+  flex-shrink: 0;
+}
+.header__logo {
+  font-family: var(--ff-h);
+  font-weight: var(--bold);
+}
+.header__logo span {
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+}
+.ion {
+  margin-inline-end: .5em;
+  font-size: 2rem;
+}
+.ion svg {
+  fill: var(--accent);
+}
+.btn .ion svg {
+  fill: var(--darken-1);
+}
+.btn:hover .ion svg {
+  fill: var(--darken-3);
+}
+.btn:focus {
+  outline: 1px solid var(--white);
+}
+.btn:disabled {
+  background-color: var(--darken-1);
+}
+.btn:disabled .ion svg {
+  fill: var(--darken-3);
+}
+.btn:disabled:hover {
+  cursor: auto;
+}
+.hero {
+  height: 100%;
+  font-size: var(--fz-p);
+  padding-block-end: 2em;
+}
+.hero__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2em;
+  padding-block-start: 2em;
+  padding-block-end: 1em;
+}
+.hero__form-search,
+.hero__form-filter,
+.hero__form-breadcrumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.hero__items {
+  display: grid;
+  padding-block: 1em;
+  gap: 1em;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+.hero__items-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  text-align: center;
+  background-color: var(--darken-3);
+  border-radius: 5px;
+  padding-block: 1em;
+  padding-inline: 1em;
+  transition: all .3s ease-in-out;
+}
+.hero__items-card h2 {
+  color: var(--darken-1);
+  text-align: left;
+  transition: color .3s ease-in-out;
+}
+.hero__items-card span {
+  font-family: var(--ff-h);
+  font-size: 4rem;
+}
+.hero__items-card:hover {
+  cursor: pointer;
+  box-shadow: 3px 3px 7px -1px rgba(0,0,0,0.52);
+}
+.hero__items-card:hover h2 {
+  color: var(--white);
+}
+.picked {
+  outline: 2px solid var(--accent);
+}
+.hero__graph__section {
+  height: 100%;
+}
+.hero__graph {
+  display: flex;
+  height: 100%;
+  min-height: 250px;
+  max-height: 250px;
+  align-items: flex-end;
+  gap: .1em;
+  width: 100%;
+  margin-block-start: 1em;
+  border-inline-start: 2px solid var(--darken-3);
+  border-block-end: 2px solid var(--darken-3);
+}
+
+.hero__graph-column {
+  width: 10px;
+  height: 125px;
+  background-color: var(--accent);
+}
+
+@media (min-width: 400px) {
+  .hero__form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .hero__form-breadcrumbs {
+    padding-block-start: 1.7em;
+  }
+  .hero__form-search,
+  .hero__form-filter,
+  .hero__form-breadcrumbs {
+    width: 50%;
+  }
+}
+.footer__links {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1em;
+}
+.footer__links a {
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+@media (min-width: 560px) {
+  .hero__form-search,
+  .hero__form-filter,
+  .hero__form-breadcrumbs {
+    width: 45%;
+  }
+  .footer__links {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 920px) {
+  .hero__form {
+    justify-content: space-between;
+  }
+  .hero__form-search,
+  .hero__form-filter,
+  .hero__form-breadcrumbs {
+    width: 30%;
+  }
+}
